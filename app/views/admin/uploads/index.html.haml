@@ -1,0 +1,17 @@
+%h1 All Uploads
+
+= link_to 'New Upload', new_admin_upload_path, class: 'btn btn-large btn-info pull-right'
+
+%table.table
+  %thead
+    %tr
+      %th File
+      %th Link
+      %th{width: '20%'} Actions
+
+  - @uploads.each do |upload|
+    %tr
+      %td= upload.file_file_name
+      %td= link_to upload.file.url, upload.file.url
+      %td
+        = link_to 'Destroy', admin_upload_path(upload), :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger'

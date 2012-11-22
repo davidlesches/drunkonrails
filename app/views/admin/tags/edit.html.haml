@@ -1,0 +1,7 @@
+%h1 Editing Tag
+
+= render 'form'
+
+.buttons
+  = link_to 'View Tag', admin_tag_path(@tag), class: 'btn btn-primary'
+  = link_to 'Delete Tag', admin_tag_path(@tag), :method => :delete, :confirm => "Are you sure?", class: 'btn btn-danger'

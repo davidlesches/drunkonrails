@@ -1,0 +1,19 @@
+%h1 All Blog Posts
+
+= link_to 'New Blog Post', new_admin_post_path, class: 'btn btn-large btn-info pull-right'
+
+%table.table
+  %thead
+    %tr
+      %th{width: '8%'} Published ?
+      %th Title
+      %th{width: '30%'} Actions
+
+  - @posts.each do |post|
+    %tr
+      %td{ class: ( post.published? ? "green" : "red") }= post.published? ? "Yes" : "No"
+      %td= post.title
+      %td
+        = link_to 'Show', admin_post_path(post), class: 'btn btn-primary'
+        = link_to 'Edit', edit_admin_post_path(post), class: 'btn btn-warning'
+        = link_to 'Destroy', admin_post_path(post), :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger'

@@ -1,0 +1,10 @@
+.form-horizontal
+  = simple_form_for([:admin, @upload]) do |f|
+
+    .form-inputs
+      .control-group
+        = f.label :file, class: 'control-label'
+        .controls= f.input :file, label: false
+
+    .form-actions
+      = f.button :submit, class: 'btn btn-success'

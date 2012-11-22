@@ -1,0 +1,16 @@
+%h1 All Tags
+
+= link_to 'New Tag', new_admin_tag_path, class: 'btn btn-large btn-info pull-right'
+
+%table.table
+  %thead
+    %tr
+      %th Tag
+      %th{width: '20%'} Actions
+
+  - @tags.each do |tag|
+    %tr
+      %td= tag.name
+      %td
+        = link_to 'Edit', edit_admin_tag_path(tag), class: 'btn btn-warning'
+        = link_to 'Destroy', admin_tag_path(tag), :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger'

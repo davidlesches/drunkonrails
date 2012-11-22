@@ -1,0 +1,10 @@
+.form-horizontal
+  = simple_form_for([:admin, @tag]) do |f|
+
+    .form-inputs
+      .control-group
+        = f.label :name, class: 'control-label'
+        .controls= f.input :name, label: false
+
+    .form-actions
+      = f.button :submit, class: 'btn btn-success'

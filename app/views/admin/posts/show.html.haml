@@ -1,0 +1,36 @@
+%h1= @post.title
+
+.nice_spacings
+  .group
+    .title Title:
+    .body= @post.title
+
+  .group
+    .title Published ?
+    .body{ class: (@post.published? ? "green" : "red") }= @post.published? ? "Yes" : "No"
+
+  .group
+    .title Teaser:
+    .body= raw @post.teaser
+
+  .group
+    .title Post Body:
+    .body= render_blog_post @post.body
+
+  .group
+    .title Banner:
+    .body= @post.banner_file_name? ? image_tag(@post.banner.url(:thumb)) : "No image uploaded."
+
+  .group
+    .title Author(s):
+    .body= @post.administrators.order("name asc").map { |a| a.name }.join(', ')
+
+  .group
+    .title Created:
+    .body= @post.created_at.to_s(:date)
+
+
+.left_buttons
+  = link_to 'Back', admin_posts_path, class: 'btn btn-inverse'
+  = link_to 'Edit', edit_admin_post_path(@post), class: 'btn btn-warning'
+  = link_to 'Destroy', admin_post_path(@post), :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger'
