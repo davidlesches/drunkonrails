@@ -18,9 +18,12 @@ class Post < ActiveRecord::Base
   def related
     related = []
     self.tags.each do |tag|
-      related << tag.posts.limit(5) # no need to order by date desc, as default scope does that already.
+      related << tag.posts.order("updated_at desc").first(5)
     end
     related.flatten.uniq.sort_by(&:updated_at).reverse.first(6)
+
+    # update to filter by how similar it is
+    # subtract the current post from the final array
   end
 
 end

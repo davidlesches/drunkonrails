@@ -1,0 +1,27 @@
+- title @post.title
+- meta_keywords @post.tags.map(&:name).join(', ')
+- meta_description strip_tags(raw @post.body)
+
+.post-show
+  %h1= @post.title
+
+  .author
+    by
+    = @post.administrators.map { |a| (link_to a.name.upcase, "http://twitter.com/#{a.twitter}") }.to_sentence.html_safe
+    on
+    = @post.created_at.to_s(:classic).upcase
+    in
+    = raw @post.tags.map { |t| link_to t.name.upcase, tag_path(t) }.to_sentence.html_safe
+
+  .body= markdown @post.body
+
+
+  .related_posts
+    .title Related Posts
+    - if @post.related.any?
+      - @post.related.each do |rel|
+        = link_to rel.title, post_path(rel) if rel != @post
+    - else
+      No related posts found.
+
+  #comments=# render 'shared/disqus'

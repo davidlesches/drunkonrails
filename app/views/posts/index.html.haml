@@ -1,0 +1,7 @@
+- title "Blog"
+- meta_keywords "blog"
+
+.posts
+  = render @posts
+  = paginate @posts
+  =# render 'shared/disqus_comment_count'

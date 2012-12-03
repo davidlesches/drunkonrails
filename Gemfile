@@ -15,6 +15,7 @@ gem 'pygments.rb'
 gem 'kaminari'
 gem 'quiet_assets'
 gem 'thin'
+gem 'redcarpet'
 
 
 group :assets do

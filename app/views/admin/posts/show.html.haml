@@ -11,11 +11,11 @@
 
   .group
     .title Teaser:
-    .body= raw @post.teaser
+    .body= markdown @post.teaser
 
   .group
     .title Post Body:
-    .body= render_blog_post @post.body
+    .body= markdown @post.body
 
   .group
     .title Banner:
@@ -23,7 +23,7 @@
 
   .group
     .title Author(s):
-    .body= @post.administrators.order("name asc").map { |a| a.name }.join(', ')
+    .body= @post.administrators.order("first_name asc").map { |a| a.name }.join(', ')
 
   .group
     .title Created:

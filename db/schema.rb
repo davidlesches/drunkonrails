@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121122043231) do
+ActiveRecord::Schema.define(:version => 20121202202513) do
 
   create_table "administrators", :force => true do |t|
     t.string   "first_name"
@@ -23,12 +23,12 @@ ActiveRecord::Schema.define(:version => 20121122043231) do
     t.datetime "updated_at",      :null => false
   end
 
-  create_table "administrators_tags", :force => true do |t|
+  create_table "administrators_posts", :force => true do |t|
     t.integer "administrator_id"
     t.integer "post_id"
   end
 
-  add_index "administrators_tags", ["administrator_id", "post_id"], :name => "index_administrators_tags_on_administrator_id_and_post_id"
+  add_index "administrators_posts", ["administrator_id", "post_id"], :name => "index_administrators_posts_on_administrator_id_and_post_id"
 
   create_table "friendly_id_slugs", :force => true do |t|
     t.string   "slug",                         :null => false
