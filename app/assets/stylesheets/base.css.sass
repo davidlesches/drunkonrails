@@ -1,53 +1,44 @@
 body
-  +grid-container
-  +clearfix
   font-family: sans-serif
-  color: #333
+  color: #4c4c4c
   font-size: 11pt
-  background: #fff
+  background: #DCEFEF
+  background-position: center top
 
 h1, h2, h3, h4, h5, h6
-  font-family: sans-serif
-  font-weight: 300
-  color: #4FB5D3
-  font-weight: 400
+  font-family: 'Exo', sans-serif
+  color: #FF2F01
+  font-weight: 200
+  margin-bottom: 0px
 
 h1
   font-size: 40pt
 
 h2
-  font-size: 36pt
-
-h3
   font-size: 30pt
 
-h4
+h3
   font-size: 25pt
 
-h5
+h4
   font-size: 20pt
+
+h5
+  font-size: 15pt
 
 h6
   font-size: 15pt
 
 code
-  color: black
-  padding: 2px 4px
-  background-color: #F7F7F9
-  border: 1px solid #E1E1E8
   font-family: Menlo,Monaco,Consolas,"Courier New",monospace
-  font-size: 12px
-  -webkit-border-radius: 3px
-  -moz-border-radius: 3px
-  border-radius: 3px
+  background: #f3f3f3
 
 pre
   font-size: 12px
-  padding: 14px
+  padding: 14px 0px 14px 14px
   line-height: 18px
   white-space: pre
   font-family: Menlo,Monaco,Consolas,"Courier New",monospace
-  font-size: 12px
   color: #333
   background-color: #F7F7F9
   border: 1px solid #E1E1E8
@@ -57,12 +48,28 @@ pre
   margin-bottom: 18px
 
 a
-  color: #5bd34f
+  color: #FF2F01
   text-decoration: underline
 
   &:hover
     text-decoration: none
 
+p
+  font-size: 10.5pt
+  line-height: 16pt
+
 .main
+  +grid-container
+  +clearfix
+  padding: 20px
+  background: #FFF
+  border-radius: 10px
+  border: 2px solid #a3aeae
+  -webkit-box-shadow: inset 0px 0px 10px 10px rgba(243, 243, 243, 0.7)
+  box-shadow: inset 0px 0px 10px 10px rgba(243, 243, 243, 0.7)
+  margin-bottom: 40px
+
+.content
   +grid(18)
+
 

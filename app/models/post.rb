@@ -16,14 +16,20 @@ class Post < ActiveRecord::Base
 
 
   def related
-    related = []
+    related = {}
     self.tags.each do |tag|
-      related << tag.posts.order("updated_at desc").first(5)
+      tag.posts.published.each do |post|
+        next if post == self
+        related[post.id] = related[post.id] ? related[post.id] + 1 : 1
+      end
     end
-    related.flatten.uniq.sort_by(&:updated_at).reverse.first(6)
 
-    # update to filter by how similar it is
-    # subtract the current post from the final array
+    if related.any?
+      ids = related.sort_by {|k, v| v}.reverse.take(5).map { |k, v| k }
+      Post.find ids
+    else
+      Post.published.order('created_at desc').first(5).to_a - Array(self)
+    end
   end
 
 end

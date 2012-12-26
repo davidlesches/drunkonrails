@@ -1,18 +1,6 @@
 .post
 
-  - if post.banner_file_name?
-    .banner_image= image_tag post.banner.url(:thumb)
-
-  %h3= link_to post.title, post
-
-  .author
-    by
-    = post.administrators.map { |a| (link_to a.name.upcase, "http://twitter.com/#{a.twitter}") }.to_sentence.html_safe
-    on
-    = post.created_at.to_s(:classic).upcase
-    in
-    = raw post.tags.map { |t| link_to t.name.upcase, tag_path(t) }.to_sentence.html_safe
-
+  %h1= link_to post.title, post
   .teaser= markdown post.teaser
 
   .more_links

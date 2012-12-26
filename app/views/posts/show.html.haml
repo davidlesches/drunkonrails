@@ -5,23 +5,33 @@
 .post-show
   %h1= @post.title
 
-  .author
-    by
-    = @post.administrators.map { |a| (link_to a.name.upcase, "http://twitter.com/#{a.twitter}") }.to_sentence.html_safe
-    on
-    = @post.created_at.to_s(:classic).upcase
-    in
-    = raw @post.tags.map { |t| link_to t.name.upcase, tag_path(t) }.to_sentence.html_safe
+  - if @post.banner_file_name?
+    .banner_image= image_tag @post.banner.url
 
   .body= markdown @post.body
 
+  .follow-on-twitter
+    Liked this article?
+    %br
+    = link_to 'Follow David on Twitter', 'http://twitter.com/davidlesches', target: '_blank'
+    %br
+    It's what all the cool kids do.
 
-  .related_posts
-    .title Related Posts
-    - if @post.related.any?
-      - @post.related.each do |rel|
-        = link_to rel.title, post_path(rel) if rel != @post
-    - else
-      No related posts found.
+  .comments= render 'shared/disqus'
 
-  #comments=# render 'shared/disqus'
+- content_for :sidebar do
+  %h6 About this article
+  .author= @post.administrators.map { |a| (link_to a.name, "http://twitter.com/#{a.twitter}", target: '_blank') }.to_sentence.html_safe
+  .posted= @post.created_at.to_s(:classic)
+  .tags= raw @post.tags.map { |t| link_to t.name, tag_path(t) }.to_sentence.html_safe
+
+  %h6 About the author
+  - @post.administrators.each do |author|
+    .author-bio
+      .photo= image_tag author.photo.url(:thumb)
+      .bio= raw author.bio
+
+  %h6 Related awesomeness
+  .related
+    - @post.related.each do |rel|
+      = link_to rel.title, rel

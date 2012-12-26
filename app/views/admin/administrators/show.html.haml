@@ -10,8 +10,15 @@
     .body= @administrator.email
 
   .group
+    .title Bio:
+    .body= raw @administrator.bio
+
+  .group
+    .title Photo:
+    .body= image_tag @administrator.photo.url
+
+  .group
     .title Date Created:
     .body= @administrator.created_at.to_s(:date)
-
 
 .left_buttons= link_to 'Back', admin_administrators_path, class: 'btn btn-inverse'

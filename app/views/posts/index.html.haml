@@ -4,4 +4,14 @@
 .posts
   = render @posts
   = paginate @posts
-  =# render 'shared/disqus_comment_count'
+  = render 'shared/disqus_comments'
+
+- content_for :sidebar do
+  %h6 About David
+  .author-bio
+    .photo= image_tag Administrator.first.photo.url(:thumb)
+    .bio= raw Administrator.first.bio
+
+  %h6 Categories
+  - Tag.includes(:posts).order('tags.name asc').each do |tag|
+    .tags= link_to "#{tag.name} (#{tag.posts.count})", tag_path(tag)
