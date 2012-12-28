@@ -13,7 +13,7 @@
   - @posts.order('created_at desc').each do |post|
     %tr
       %td{ class: ( post.published? ? "green" : "red") }= post.published? ? "Yes" : "No"
-      %th- post.created_at.to_s(:classic)
+      %td= post.created_at.to_s(:classic)
       %td= post.title
       %td
         = link_to 'Show', admin_post_path(post), class: 'btn btn-primary'
