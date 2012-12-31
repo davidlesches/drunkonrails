@@ -1,5 +1,5 @@
 atom_feed do |feed|
-  feed.title "Drunk on Rails"
+  feed.title "David Lesches"
   feed.updated @posts.maximum(:updated_at)
   @posts.each do |article|
     feed.entry article do |entry|
