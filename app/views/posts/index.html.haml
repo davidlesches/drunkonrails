@@ -5,6 +5,9 @@
   = render 'shared/disqus_comments'
 
 - content_for :sidebar do
+  %h6 About this blog
+  = CONFIG['meta_description']
+
   %h6 About David
   .author-bio
     .photo= image_tag Administrator.first.photo.url(:thumb)
