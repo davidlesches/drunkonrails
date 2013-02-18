@@ -2,8 +2,7 @@ body
   font-family: sans-serif
   color: #4c4c4c
   font-size: 11pt
-  background: #DCEFEF
-  background-position: center top
+  background: url(image-path('splash.png')) right 40px no-repeat, url(image-path('background.jpg'))
 
 h1, h2, h3, h4, h5, h6
   font-family: 'Exo', sans-serif
@@ -68,6 +67,7 @@ p
   -webkit-box-shadow: inset 0px 0px 10px 10px rgba(243, 243, 243, 0.7)
   box-shadow: inset 0px 0px 10px 10px rgba(243, 243, 243, 0.7)
   margin-bottom: 40px
+  z-index: 2
 
 .content
   +grid(17)
