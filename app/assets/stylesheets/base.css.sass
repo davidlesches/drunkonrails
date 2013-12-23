@@ -1,17 +1,19 @@
+$base-color: #16a085
+
 body
   font-family: sans-serif
   color: #4c4c4c
   font-size: 11pt
-  background: url(image-path('splash.png')) right 40px no-repeat, url(image-path('background.jpg'))
+  background: #282B36
 
 h1, h2, h3, h4, h5, h6
   font-family: 'Exo', sans-serif
-  color: #FF2F01
+  color: $base-color
   font-weight: 200
   margin-bottom: 0px
 
 h1
-  font-size: 40pt
+  font-size: 32pt
 
 h2
   font-size: 27pt
@@ -53,7 +55,7 @@ pre
   margin-bottom: 18px
 
 a
-  color: #FF2F01
+  color: $base-color
   text-decoration: underline
 
   &:hover
@@ -69,7 +71,6 @@ p
   padding: 20px
   background: #FFF
   border-radius: 10px
-  border: 2px solid #a3aeae
   -webkit-box-shadow: inset 0px 0px 10px 10px rgba(243, 243, 243, 0.7)
   box-shadow: inset 0px 0px 10px 10px rgba(243, 243, 243, 0.7)
   margin-bottom: 40px
