@@ -1,16 +1,27 @@
-$base-color: #16a085
+$base-color: #3F5765
+$heading-font: 'Lato', sans-serif
 
 body
   font-family: sans-serif
   color: #4c4c4c
   font-size: 11pt
-  background: #282B36
+  background: #fff
+
+  a:hover
+    color: #E74C3C
+    transition: color 0.2s linear
 
 h1, h2, h3, h4, h5, h6
-  font-family: 'Exo', sans-serif
+  font-family: $heading-font
   color: $base-color
-  font-weight: 200
+  font-weight: 300
   margin-bottom: 0px
+
+  a
+    text-decoration: none
+
+h2, h3, h4, h5, h6
+  font-weight: 300
 
 h1
   font-size: 32pt
@@ -69,10 +80,7 @@ p
   +grid-container
   +clearfix
   padding: 20px
-  background: #FFF
   border-radius: 10px
-  -webkit-box-shadow: inset 0px 0px 10px 10px rgba(243, 243, 243, 0.7)
-  box-shadow: inset 0px 0px 10px 10px rgba(243, 243, 243, 0.7)
   margin-bottom: 40px
   z-index: 2
 
