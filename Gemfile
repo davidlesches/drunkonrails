@@ -16,7 +16,8 @@ gem 'kaminari'
 gem 'quiet_assets'
 gem 'thin'
 gem 'redcarpet'
-
+gem 'whenever', :require => false
+gem 'backup'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
